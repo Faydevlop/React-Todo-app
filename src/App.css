@@ -1,38 +1,135 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgba(24,35,53,255);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.todo-app {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+}
+
+.section {
+  background-color: #f6f6e6;
+  border-radius: 19px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s;
+  height: fit-content;
+}
+
+.section:hover {
+  background-color: #f6f6e6;
+  box-shadow: 2px 2px 20px   #dddddd51;
+  transform: scale(1.05); /* Slightly scale up on hover */
+  transition: transform 0.5s; /* Add a smooth transition effect */
+  border-radius: 15px;
+}
+
+.section h2 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-item {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
 }
 
-.App-link {
-  color: #61dafb;
+/* Style for the checkbox */
+.task-checkbox {
+  margin-right: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Style for the task label */
+.task-label {
+  flex-grow: 1;
+  font-size: 18px;
+  
+}
+
+/* Style for the delete button */
+.task-delete {
+  border: none;
+  background-color: transparent;
+  color: #ff6347; /* Red color */
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Hover effect for the delete button */
+.task-delete:hover {
+  color: #dc143c; /* Darker red color */
+}
+
+.task-add {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #868686;
+  color: #f6f6e6;
+  font-size: 1rem;
+  cursor: pointer;
+  flex-shrink: 0; /* Prevent button from shrinking */
+  transform: scale(1.05);
+  transition: transform 0.3s;
+}
+
+  /* Hover effect for the "Add Task" button */
+  
+  .task-add:hover {
+      background-color: #444;
+      transition: transform 0.3s;
+    }
+@media (max-width: 768px) {
+  .section h2 {
+      font-size: 1.5rem;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+.task-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1rem;
+  gap: 10px; /* Add gap between input box and button */
+}
+
+.input-task {
+  flex: 1;
+  padding: 0.55rem 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.input-task:focus {
+  outline: none;
+  box-shadow: 0 0 2px 1px #333;
+}
+
+.input-task::placeholder {
+  color: #999;
+  font-weight: 300;
 }
